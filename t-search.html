@@ -354,10 +354,7 @@ The form handles below mentioned scenarios on its own.
 
       submitDesktopInput: function () {
         var input = document.getElementsByClassName("suggestions");
-        var data = [];
-
-        var button = this.$.button;
-        button.textContent = 'searching';
+        var data = [];       
 
         for (var i = 0; i < input.length; i++) {
           data[i] = input[i].value;
@@ -425,6 +422,8 @@ The form handles below mentioned scenarios on its own.
           this.$.deskinput1.invalid = true;
         }
         else {
+          var button = this.$.button;
+          button.textContent = 'searching';
           var myJSON = JSON.stringify(data);
           alert(myJSON);    // will alert the value of the input
           console.log(myJSON);
