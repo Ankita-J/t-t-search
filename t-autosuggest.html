@@ -453,25 +453,30 @@ checkdata:{
         } else {
             this.classList.remove('label-is-floating');
         }
+        this._showReadMoreDots();
     },
 
     simpleTap:function(e){
         if (!e) var e = window.event;
         e.cancelBubble = true;
-        if (e.stopPropagation) e.stopPropagation();
-        
+        if (e.stopPropagation) e.stopPropagation();        
     },
   
-    clear: function() {
-        
+    clear: function() {        
         this.classList.add('focused');     
         this.selectedValue = "";
         //this.selectedItem = null;
         this.$.autoSuggest.value = "";
         this.classList.remove('label-is-floating');
     }
-  
-   
-   
+  _showReadMoreDots: function () {
+            var l = this.$.autoSuggest.offsetWidth/7.6;
+            if(this.$.autoSuggest.value.length > l){
+                this.$.autoSuggest.value = this.$.autoSuggest.bindValue.substring(0,l) + "..."
+            }
+        },
+        _changeWidth: function() {
+        this._showReadMoreDots();
+        }    
 })
 </script>
